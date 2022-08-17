@@ -29,3 +29,9 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         if data ['password'] != data['password2']:
             raise serializers.ValidationError('passwords must math ')
         return data
+
+
+class UserSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = '__all__'
