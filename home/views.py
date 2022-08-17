@@ -23,7 +23,7 @@ class Home(APIView):
 
 
 class QuestionListView(APIView):
-    permission_classes = [IsAuthenticated,]
+    throttle_scope = 'questions'
 
     def get(self, request):
         questions = Question.objects.all() 
