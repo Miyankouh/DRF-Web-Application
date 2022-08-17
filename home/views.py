@@ -1,8 +1,17 @@
-from django.shortcuts import render
-from django.views import View
+from rest_framework.decorators import api_view, APIView
+from rest_framework.response import Response
+from .models import Person
+from .serializers import PersonSerializer
+
+""" function api """
+# @api_view(['GET', 'POST', 'PUT'])
+# def home(request):
+#     return Response({'name': 'miyankouh'})
 
 
-# Create your views here.
-class Home(View):
+""" class base api """
+class Home(APIView):
     def get(self, request):
-        return render(request, 'home/home.html')
+        persons = Person.objects.get(name='miyankouh')
+        ser_data = PersonSerializer(instance=persons)
+        return Response(data=ser_data.data)
