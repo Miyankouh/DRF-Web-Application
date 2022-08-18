@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     # external apps
     'rest_framework',
+    'drf_spectacular',
 
 ]
 
@@ -147,5 +148,12 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_THROTTLE_RATES': {
         'questions': '5/min',
-    }
+    },
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'First API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
 }
