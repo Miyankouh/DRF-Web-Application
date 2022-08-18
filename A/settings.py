@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     # external apps
     'rest_framework',
-    'rest_framework.authtoken',
 
 ]
 
@@ -138,14 +137,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # REST_FRAMEWORK
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-    'rest_framework.authentication.TokenAuthentication',
+        # 'rest_framework.authentication.TokenAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+
     ], 
-    # 'DEFAULT_THROTTLE_CLASSES': [
-    #     'rest_framework.throttling.AnonRateThrottle',
-    #     'rest_framework.throttling.UserRateThrottle'
-    # ],
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.ScopedRateThrottle',
+
     ],
     'DEFAULT_THROTTLE_RATES': {
         'questions': '5/min',
