@@ -14,7 +14,7 @@ from permissions import IsOwnerOrReadOnly
 
 """ class base api """
 class Home(APIView):
-    permission_classes = [IsAuthenticated, IsAdminUser,]
+    # permission_classes = [IsAuthenticated, IsAdminUser,]
 
     def get(self, request):
         persons = Person.objects.all()
@@ -35,7 +35,7 @@ class QuestionCreateView(APIView):
     """  
         Cerate a new question
     """
-    permission_classes = [IsAuthenticated,]
+    # permission_classes = [IsAuthenticated,]
     serializer_class = QuestionSerializer
 
     def post(self, request):
